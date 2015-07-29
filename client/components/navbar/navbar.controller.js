@@ -14,6 +14,10 @@ angular.module('skyfly33App')
   {
     'title': 'Scrollr_Practice',
     'link': '/scrollr'
+  },
+  {
+    'title': 'kakao',
+    'link': '/kakao'
   }];
 
   $scope.isCollapsed = true;

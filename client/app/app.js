@@ -7,19 +7,22 @@ angular.module('skyfly33App', [
   'ngRoute',
   'btford.socket-io',
   'ui.bootstrap'
-])
-  .config(function ($routeProvider, $locationProvider, $httpProvider) {
-    $routeProvider
-      .otherwise({
-        redirectTo: '/'
-      });
+  ])
+.config(function ($routeProvider, $locationProvider, $httpProvider) {
+  $routeProvider
+  .otherwise({
+    redirectTo: '/'
+  });
 
-    $locationProvider.html5Mode(true);
-    $httpProvider.interceptors.push('authInterceptor');
-  })
+  $locationProvider.html5Mode(true);
+  $httpProvider.interceptors.push('authInterceptor');
 
-  .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
-    return {
+  // 사용할 앱의 JavaScript 키를 설정해 주세요.
+  Kakao.init('db831e72d4093199ddd7954e27a2f91b');
+})
+
+.factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
+  return {
       // Add authorization token to headers
       request: function (config) {
         config.headers = config.headers || {};
@@ -44,7 +47,7 @@ angular.module('skyfly33App', [
     };
   })
 
-  .run(function ($rootScope, $location, Auth) {
+.run(function ($rootScope, $location, Auth) {
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$routeChangeStart', function (event, next) {
       Auth.isLoggedInAsync(function(loggedIn) {
