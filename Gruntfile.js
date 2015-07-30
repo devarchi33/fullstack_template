@@ -34,7 +34,7 @@ module.exports = function (grunt) {
     },
     express: {
       options: {
-        port: process.env.PORT || 9000
+        port: process.env.PORT || 9001
       },
       dev: {
         options: {
@@ -198,7 +198,7 @@ module.exports = function (grunt) {
         options: {
           nodeArgs: ['--debug-brk'],
           env: {
-            PORT: process.env.PORT || 9000
+            PORT: process.env.PORT || 9001
           },
           callback: function (nodemon) {
             nodemon.on('log', function (event) {
