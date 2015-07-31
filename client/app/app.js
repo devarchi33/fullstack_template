@@ -18,7 +18,7 @@ angular.module('skyfly33App', [
   $httpProvider.interceptors.push('authInterceptor');
 
   // 사용할 앱의 JavaScript 키를 설정해 주세요.
-  Kakao.init('db831e72d4093199ddd7954e27a2f91b');
+  Kakao.init('');
 })
 
 .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
