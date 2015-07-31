@@ -25,4 +25,15 @@ angular.module('skyfly33App')
 
 		$http.post('/api/testdocs', sampleUser);
 	};
+
+	$scope.submitToLocalhost = function() {
+		$http.jsonp('http://angularjs.org/greet.php?callback=JSON_CALLBACK',
+		{
+			params : {
+				name : 'skyfly33'
+			}
+		}).success(function(data){
+			$scope.message2 = data;
+		});
+	};
 });
